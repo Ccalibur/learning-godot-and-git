@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Playergreenskin.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6, 8.5 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+jump_force = -160
+jump_release_force = -40
+max_speed = 75
+gravity = 5
+additonal_fall_gravity = 2
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "jump"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3.5 )
+shape = SubResource( 3 )
